@@ -21,7 +21,7 @@ const Cart = ({ currentSale, setCurrentSale, handleClickDelete }) => {
         ))}
         <hr></hr>
       </CartList>
-      <CartTotal currentSale={currentSale} />
+      <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale}/>
     </CartDiv>
   );
 };

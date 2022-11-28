@@ -7,7 +7,7 @@ import {
   TotalCount,
 } from "../../styles/totalCart";
 
-const CartTotal = ({ currentSale }) => {
+const CartTotal = ({ currentSale, setCurrentSale }) => {
   const arrayPrice = currentSale.map((product) => product.price);
 
   return (
@@ -18,7 +18,7 @@ const CartTotal = ({ currentSale }) => {
           R$ {arrayPrice.reduce((acc, cur) => acc + cur, 0).toFixed(2)}
         </TotalCount>
       </CartTotalPrice>
-      <RemoveBtn>Remover todos</RemoveBtn>
+      <RemoveBtn onClick={(e) => setCurrentSale([])}>Remover todos</RemoveBtn>
     </CartTotalDiv>
   );
 };

@@ -10,7 +10,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
+  /* const [cartTotal, setCartTotal] = useState(0); */
 
   useEffect(() => {
     async function getProducts() {
@@ -33,7 +33,7 @@ function App() {
         product.name.toLowerCase() === input.toLowerCase() ||
         product.category.toLowerCase() === input.toLowerCase()
     );
-    console.log(some);
+    
     const filter = products.filter(
       (product) =>
         product.name.toLowerCase() === input.toLowerCase() ||
@@ -41,7 +41,7 @@ function App() {
     );
 
     some && setFilteredProducts(filter);
-    some && setProducts(filter);
+    some || setFilteredProducts([])
   }
 
   function handleClick(id) {
@@ -73,6 +73,7 @@ function App() {
             showProducts={showProducts}
             products={products}
             handleClick={handleClick}
+            filteredProducts={filteredProducts}
           />
           <Cart
             currentSale={currentSale}
