@@ -2,9 +2,10 @@ import React from "react";
 import { CartDiv, CartHead, CartList } from "../styles/cart";
 import CartProduct from "./CartProduct";
 import CartTotal from "./CartTotal";
+import EmptyCart from "./EmptyCart";
 
 const Cart = ({ currentSale, setCurrentSale, handleClickDelete }) => {
-  return (
+  return currentSale.length ? (
     <CartDiv>
       <CartHead>
         <h3>Carrinho de compras</h3>
@@ -14,14 +15,19 @@ const Cart = ({ currentSale, setCurrentSale, handleClickDelete }) => {
           <CartProduct
             key={index}
             product={product}
-            currentSale={currentSale}
-            setCurrentSale={setCurrentSale}
             handleClickDelete={handleClickDelete}
           />
         ))}
         <hr></hr>
       </CartList>
-      <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale}/>
+      <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale} />
+    </CartDiv>
+  ) : (
+    <CartDiv>
+      <CartHead>
+        <h3>Carrinho de compras</h3>
+      </CartHead>
+      <EmptyCart />
     </CartDiv>
   );
 };

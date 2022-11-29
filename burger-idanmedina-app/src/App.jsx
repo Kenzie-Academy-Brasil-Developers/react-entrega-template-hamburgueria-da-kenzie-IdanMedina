@@ -4,13 +4,13 @@ import ProductsList from "./ProductsList";
 import Cart from "./Cart";
 import { GlobalStyle } from "./styles/global.js";
 import { api } from "./services/api.js";
+import { Loading } from "./styles/loading";
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  /* const [cartTotal, setCartTotal] = useState(0); */
 
   useEffect(() => {
     async function getProducts() {
@@ -28,20 +28,18 @@ function App() {
   }, []);
 
   function showProducts(input) {
-    const some = products.some(
-      (product) =>
-        product.name.toLowerCase() === input.toLowerCase() ||
-        product.category.toLowerCase() === input.toLowerCase()
-    );
-    
-    const filter = products.filter(
-      (product) =>
-        product.name.toLowerCase() === input.toLowerCase() ||
-        product.category.toLowerCase() === input.toLowerCase()
-    );
-
-    some && setFilteredProducts(filter);
-    some || setFilteredProducts([])
+    const filterList = products.filter((product) => {
+      const productName = product.name.toLowerCase();
+      const productCategory = product.category.toLowerCase();
+      if (
+        productName.includes(input.toLowerCase()) ||
+        productCategory.includes(input.toLowerCase())
+      )
+        return product;
+    });
+    filterList.length
+      ? setFilteredProducts(filterList)
+      : setFilteredProducts([]);
   }
 
   function handleClick(id) {
@@ -51,26 +49,23 @@ function App() {
   }
 
   function handleClickDelete(id) {
-    const find = currentSale.findIndex((product) => product.id === Number(id));
-    const splice = [...currentSale].splice(find, 1)
-    setCurrentSale(splice);
+    const filterList = currentSale.filter(
+      (product) => product.id !== Number(id)
+    );
+    setCurrentSale(filterList);
   }
 
   return (
     <div>
       {loading ? (
-        <h2>Carregando...</h2>
+        <Loading>Carregando...</Loading>
       ) : (
         <>
           <GlobalStyle />
-          <nav>
-            <Header
-              filteredProducts={filteredProducts}
-              showProducts={showProducts}
-            />
-          </nav>
+
+          <Header showProducts={showProducts} />
+
           <ProductsList
-            showProducts={showProducts}
             products={products}
             handleClick={handleClick}
             filteredProducts={filteredProducts}

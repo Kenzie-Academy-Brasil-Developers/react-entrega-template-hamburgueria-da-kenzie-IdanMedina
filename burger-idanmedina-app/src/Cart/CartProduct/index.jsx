@@ -1,22 +1,20 @@
 import React from "react";
 import { RemoveSpn } from "../../styles/buttons";
-import { CardCart, CardCartImg } from "../../styles/cardCart";
+import { CardCart, CardCartImg, CardCartInfo } from "../../styles/cardCart";
 
 const CartProduct = ({
   product,
-  currentSale,
-  setCurrentSale,
-  handleClickDelete,
+  handleClickDelete
 }) => {
   return (
     <CardCart>
       <div>
         <CardCartImg src={product.img} alt={product.name} />
       </div>
-      <div>
+      <CardCartInfo>
         <h4>{product.name}</h4>
         <p>{product.category}</p>
-      </div>
+      </CardCartInfo>
       <RemoveSpn
         id={product.id}
         onClick={(e) => handleClickDelete(e.target.id)}

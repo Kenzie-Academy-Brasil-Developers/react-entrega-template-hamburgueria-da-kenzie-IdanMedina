@@ -1,15 +1,21 @@
 import styled from "styled-components";
 
 export const HeaderStyled = styled.header`
+  position:fixed;
   display: flex;
   flex-direction: column;
-  widht: 100%;
+  width: 100%;
   min-height: 5rem;
   padding: 0.875rem 1rem;
   gap: 14px;
   justify-content: space-between;
   align-items: center;
   background-color: var(--grey-0);
+
+  @media (min-width: 1024px) {
+    padding: 0.875rem 9rem;
+    flex-direction: row;
+  }
 `;
 export const LogoDiv = styled.div`
   display: flex;
@@ -22,4 +28,8 @@ export const FormStyled = styled.form`
   position: relative;
   height: 3.75rem;
   width: 100%;
+
+  @media (min-width: 1024px) {
+  width: 23rem;
+  }
 `;

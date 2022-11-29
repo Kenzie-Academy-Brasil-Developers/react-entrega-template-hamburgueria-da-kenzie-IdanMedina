@@ -3,7 +3,7 @@ import { ButtonInput } from "../../styles/buttons";
 import { FormStyled } from "../../styles/header";
 import { InputSearchStyled } from "../../styles/inputSearch";
 
-const InputSearch = ({ filteredProducts, showProducts }) => {
+const InputSearch = ({ showProducts }) => {
   const [data, setData] = useState("");
 
   function submit(e) {

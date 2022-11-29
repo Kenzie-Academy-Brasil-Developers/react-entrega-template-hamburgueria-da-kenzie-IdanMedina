@@ -3,14 +3,13 @@ import { List } from "../styles/list";
 import Product from "./Product";
 
 const ProductList = ({
-  showProducts,
   products,
   handleClick,
   filteredProducts,
 }) => {
   return (
     <List>
-      {filteredProducts.length === 0
+      {!filteredProducts.length
         ? products.map((product, index) => (
             <Product key={index} product={product} handleClick={handleClick} />
           ))

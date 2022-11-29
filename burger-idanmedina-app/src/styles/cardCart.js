@@ -12,3 +12,8 @@ export const CardCartImg = styled.img`
   height: 100%;
   width: 5rem;
 `;
+export const CardCartInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
