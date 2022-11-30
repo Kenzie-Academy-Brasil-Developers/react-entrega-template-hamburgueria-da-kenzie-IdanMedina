@@ -3,15 +3,18 @@ import styled from "styled-components";
 export const CartDiv = styled.div`
   margin: 0rem 1rem;
   border-radius: 5px;
-
   @media (min-width: 1024px) {
     margin: 0;
     position: fixed;
-    top: 6.67rem;
+    top: 7rem;
+    right: 2rem;
+    width: 20rem;
+    max-height: 36rem;
+    overflow-y: auto;
+  }
+  @media (min-width: 1360px) {
     right: 9rem;
     width: 23rem;
-    max-height: 50rem;
-    overflow-y: auto;
   }
 `;
 export const CartHead = styled.div`
@@ -33,7 +36,7 @@ export const EmptyCartDiv = styled.div`
   flex-direction: column;
   align-items: center;
   background: var(--grey-0);
-  padding: 20px 1.33rem;
+  padding: 4rem 1.33rem;
   list-style: none;
   border-radius: 0px 0px 5px 5px;
   gap: 21px;

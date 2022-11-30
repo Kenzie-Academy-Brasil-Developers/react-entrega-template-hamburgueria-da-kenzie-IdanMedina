@@ -13,8 +13,12 @@ export const HeaderStyled = styled.header`
   background-color: var(--grey-0);
 
   @media (min-width: 1024px) {
-    padding: 0.875rem 9rem;
+    padding: 0.875rem 2rem;
     flex-direction: row;
+  };
+
+  @media (min-width: 1360px) {
+    padding: 0.875rem 9rem;
   }
 `;
 export const LogoDiv = styled.div`
@@ -30,6 +34,10 @@ export const FormStyled = styled.form`
   width: 100%;
 
   @media (min-width: 1024px) {
-  width: 23rem;
+  width: 20rem;
   }
+
+  @media (min-width: 1360px) {
+    width: 23rem;
+    }
 `;

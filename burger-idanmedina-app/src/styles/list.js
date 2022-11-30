@@ -8,8 +8,12 @@ export const List = styled.ul`
   overflow-x: auto;
 
   @media (min-width: 1024px) {
-    padding: 7rem 36.0625rem 2.25rem 9rem;
+    padding: 7rem 22rem 2.25rem 2rem;
     flex-wrap: wrap;
     overflow-x: visible;
+  };
+
+  @media (min-width: 1360px) {
+    padding: 7rem 36.0625rem 2.25rem 9rem;
   }
 `;
